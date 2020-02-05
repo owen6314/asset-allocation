@@ -8,6 +8,7 @@
 
 ## recommendation
 - asset allocation recommendation: https://www.calcxml.com/calculators/inv01
+- another asset allocation calculator: https://www.bankrate.com/calculators/retirement/asset-allocation.aspx
 
 ## Dataset
 - ETFs from Stanford course: https://stanford.edu/class/ee103/portfolio.html
