@@ -1,0 +1,13 @@
+# Reference
+
+## background
+- what is asset allocation: https://www.thebalance.com/asset-allocation-basics-357311
+
+## strategy
+- AI for portfolio management overview: https://medium.com/swlh/ai-for-portfolio-management-from-markowitz-to-reinforcement-learning-cffedcbba566
+
+## recommendation
+- asset allocation recommendation: https://www.calcxml.com/calculators/inv01
+
+## Dataset
+- ETFs from Stanford course: https://stanford.edu/class/ee103/portfolio.html
