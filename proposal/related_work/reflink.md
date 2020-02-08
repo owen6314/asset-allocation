@@ -11,6 +11,12 @@
 - asset allocation recommendation: https://www.calcxml.com/calculators/inv01
 - another asset allocation calculator: https://www.bankrate.com/calculators/retirement/asset-allocation.aspx
 
+### simple/single factor
+- MaxReturnsAgent
+- MinVarianceAgent
+- MaxSharpeAgent
+- MaxDecorrelationAgent
+
 ### types - risk related
 - Autoencoder risk: https://arxiv.org/pdf/1605.07230.pdf  (paper), code avaliable
 - Risk Parity/Risk Budgeting Portfolio in Python: https://thequantmba.wordpress.com/2016/12/14/risk-parityrisk-budgeting-portfolio-in-python/ (with python code)
