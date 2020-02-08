@@ -41,6 +41,14 @@
 - source 4: https://github.com/ZhengyaoJiang/PGPortfolio, https://arxiv.org/pdf/1706.10059.pdf cryptocurrency (virtual money, Bitcoin as the most famous example) exchange market,
 Polonix.com
 
+- source 5: https://github.com/liangzp/Reinforcement-learning-in-portfolio-management-  continuous reinforcement learning algorithms, Deep Deterministic Policy Gradient (DDPG), Proximal Policy Optimization (PPO) and Policy Gradient (PG)
+
+- source 6: [Deep Reinforcement Learning for Portfolio Management], Chi Zhang, Corey Chen, Limian Zhang, http://www-scf.usc.edu/~zhan527/post/cs599/ .  Use Deep Deterministic Policy Gradient (DDPG) & Imitation Learning
+
+- source 7: https://www.groundai.com/project/deep-reinforcement-learning-in-portfolio-management/1,  deep deterministic policy gradient (DDPG) and proximal policy optimization (PPO) --> DDPG is better
+
+- source 8: https://arxiv.org/pdf/1706.10059.pdf, [A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem]
+
 ## Dataset
 - ETFs from Stanford course: https://stanford.edu/class/ee103/portfolio.html
 - S&P500 stock kaggle: https://www.kaggle.com/camnugent/sandp500 
