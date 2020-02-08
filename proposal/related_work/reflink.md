@@ -15,7 +15,12 @@
 - Autoencoder risk: https://arxiv.org/pdf/1605.07230.pdf  (paper), code avaliable
 - Risk Parity/Risk Budgeting Portfolio in Python: https://thequantmba.wordpress.com/2016/12/14/risk-parityrisk-budgeting-portfolio-in-python/ (with python code)
 
+### types - PCA
+- choose assets that are uncorrelated to the market strategies
 
+### Reinforcement learning
+- directly learn the policy of changing the weights dynamically in the continuously changing market
+- need to use this: https://arxiv.org/abs/1509.02971 (Continuous control with deep reinforcement learning)
 
 
 ## Dataset
