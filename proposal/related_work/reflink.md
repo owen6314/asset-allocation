@@ -31,6 +31,8 @@
 - !!! [Main source]The Effect of Cryptocurrency on Investment Portfolio
 Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid=171&doi=10.11648/j.jfa.20170506.14
 
+- !!! [Use as intro/why we want to do crypto-curr]: Cryptocurrency: A new investment opportunity? https://ink.library.smu.edu.sg/cgi/viewcontent.cgi?article=6783&context=lkcsb_research
+
 - directly learn the policy of changing the weights dynamically in the continuously changing market
 
 - github code + data + paper summary: https://github.com/firmai/machine-learning-asset-management
@@ -38,9 +40,9 @@ Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid
 - source 1: https://medium.com/swlh/ai-for-portfolio-management-from-markowitz-to-reinforcement-learning-cffedcbba566
 - need to use this: https://arxiv.org/abs/1509.02971 (Continuous control with deep reinforcement learning)
 
-- source 2: https://github.com/firmai/machine-learning-asset-management 
-
 - source 3: https://github.com/YinchuanCU/Reinforcement-learning-for-portfolio-allocation, https://arxiv.org/pdf/1907.01503.pdf
+- use Adaptive DeepDeterministic Reinforcement Learning, use Dow Jones 30 component stocks
+- result: 
 
 - source 4: https://github.com/ZhengyaoJiang/PGPortfolio, https://arxiv.org/pdf/1706.10059.pdf cryptocurrency (virtual money, Bitcoin as the most famous example) exchange market,
 Polonix.com
