@@ -27,6 +27,10 @@
 - choose assets that are uncorrelated to the market strategies
 
 ### Reinforcement learning
+
+- !!! [Main source]The Effect of Cryptocurrency on Investment Portfolio
+Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid=171&doi=10.11648/j.jfa.20170506.14
+
 - directly learn the policy of changing the weights dynamically in the continuously changing market
 
 - github code + data + paper summary: https://github.com/firmai/machine-learning-asset-management
@@ -52,3 +56,5 @@ Polonix.com
 ## Dataset
 - ETFs from Stanford course: https://stanford.edu/class/ee103/portfolio.html
 - S&P500 stock kaggle: https://www.kaggle.com/camnugent/sandp500 
+- cryptocurrencies data: https://github.com/selimamrouni/Deep-Portfolio-Management-Reinforcement-Learning/tree/master/poloniex_data
+- crypto-compare.com: need to email to get access--> https://data.cryptocompare.com/data/historical
