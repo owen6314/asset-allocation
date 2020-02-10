@@ -33,8 +33,7 @@ Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid
 
 - !!! [Use as intro/why we want to do crypto-curr]: Cryptocurrency: A new investment opportunity? https://ink.library.smu.edu.sg/cgi/viewcontent.cgi?article=6783&context=lkcsb_research
 
-- source 4: https://github.com/ZhengyaoJiang/PGPortfolio, https://arxiv.org/pdf/1706.10059.pdf cryptocurrency (virtual money, Bitcoin as the most famous example) exchange market,
-- data: Polonix.com
+- source 4: https://arxiv.org/pdf/1706.10059.pdf, [A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem], github: https://github.com/sonaam1234/PGPortfolio. Use the data: http://coinmarketcap.com/ & poloniex (https://github.com/sonaam1234/PGPortfolio/blob/master/pgportfolio/marketdata/poloniex.py)
 
 - github code + data + paper summary: https://github.com/firmai/machine-learning-asset-management
 
@@ -51,7 +50,6 @@ Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid
 
 - source 7: https://www.groundai.com/project/deep-reinforcement-learning-in-portfolio-management/1,  deep deterministic policy gradient (DDPG) and proximal policy optimization (PPO) --> DDPG is better
 
-- source 8: https://arxiv.org/pdf/1706.10059.pdf, [A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem], github: https://github.com/sonaam1234/PGPortfolio. Use the data: http://coinmarketcap.com/ & poloniex (https://github.com/sonaam1234/PGPortfolio/blob/master/pgportfolio/marketdata/poloniex.py)
 
 ## Dataset
 - ETFs from Stanford course: https://stanford.edu/class/ee103/portfolio.html
