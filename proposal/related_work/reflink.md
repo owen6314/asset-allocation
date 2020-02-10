@@ -35,7 +35,6 @@ Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid
 
 - source 4: https://github.com/ZhengyaoJiang/PGPortfolio, https://arxiv.org/pdf/1706.10059.pdf cryptocurrency (virtual money, Bitcoin as the most famous example) exchange market,
 - data: Polonix.com
-- directly learn the policy of changing the weights dynamically in the continuously changing market
 
 - github code + data + paper summary: https://github.com/firmai/machine-learning-asset-management
 
@@ -52,10 +51,12 @@ Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid
 
 - source 7: https://www.groundai.com/project/deep-reinforcement-learning-in-portfolio-management/1,  deep deterministic policy gradient (DDPG) and proximal policy optimization (PPO) --> DDPG is better
 
-- source 8: https://arxiv.org/pdf/1706.10059.pdf, [A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem]
+- source 8: https://arxiv.org/pdf/1706.10059.pdf, [A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem], github: https://github.com/sonaam1234/PGPortfolio. Use the data: http://coinmarketcap.com/ & poloniex (https://github.com/sonaam1234/PGPortfolio/blob/master/pgportfolio/marketdata/poloniex.py)
 
 ## Dataset
 - ETFs from Stanford course: https://stanford.edu/class/ee103/portfolio.html
-- S&P500 stock kaggle: https://www.kaggle.com/camnugent/sandp500 
-- cryptocurrencies data: https://github.com/selimamrouni/Deep-Portfolio-Management-Reinforcement-Learning/tree/master/poloniex_data
+- S&P500 stock kaggle: https://www.kaggle.com/camnugent/sandp500 & https://github.com/selimamrouni/Deep-Portfolio-Management-Reinforcement-Learning/blob/master/data_pipe.ipynb
+- cryptocurrencies data - poloniex: https://github.com/selimamrouni/Deep-Portfolio-Management-Reinforcement-Learning/tree/master/poloniex_data & 
+  https://github.com/selimamrouni/Deep-Portfolio-Management-Reinforcement-Learning/blob/master/data_pipe_poloniex.ipynb
 - crypto-compare.com: need to email to get access--> https://data.cryptocompare.com/data/historical
+- Top 100 Cryptocurrencies by Market Capitalization: https://coinmarketcap.com/
