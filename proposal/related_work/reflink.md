@@ -33,6 +33,8 @@ Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid
 
 - !!! [Use as intro/why we want to do crypto-curr]: Cryptocurrency: A new investment opportunity? https://ink.library.smu.edu.sg/cgi/viewcontent.cgi?article=6783&context=lkcsb_research
 
+- source 4: https://github.com/ZhengyaoJiang/PGPortfolio, https://arxiv.org/pdf/1706.10059.pdf cryptocurrency (virtual money, Bitcoin as the most famous example) exchange market,
+- data: Polonix.com
 - directly learn the policy of changing the weights dynamically in the continuously changing market
 
 - github code + data + paper summary: https://github.com/firmai/machine-learning-asset-management
@@ -42,10 +44,7 @@ Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid
 
 - source 3: https://github.com/YinchuanCU/Reinforcement-learning-for-portfolio-allocation, https://arxiv.org/pdf/1907.01503.pdf
 - use Adaptive DeepDeterministic Reinforcement Learning, use Dow Jones 30 component stocks
-- result: 
-
-- source 4: https://github.com/ZhengyaoJiang/PGPortfolio, https://arxiv.org/pdf/1706.10059.pdf cryptocurrency (virtual money, Bitcoin as the most famous example) exchange market,
-Polonix.com
+- result: Adaptive DDPG outperforms the baselines in terms of the investment return and the Sharpe ratio.
 
 - source 5: https://github.com/liangzp/Reinforcement-learning-in-portfolio-management-  continuous reinforcement learning algorithms, Deep Deterministic Policy Gradient (DDPG), Proximal Policy Optimization (PPO) and Policy Gradient (PG)
 
