@@ -33,7 +33,7 @@ Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid
 
 - !!! [Use as intro/why we want to do crypto-curr]: Cryptocurrency: A new investment opportunity? https://ink.library.smu.edu.sg/cgi/viewcontent.cgi?article=6783&context=lkcsb_research
 
-- source 4: https://arxiv.org/pdf/1706.10059.pdf, [A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem], github: https://github.com/sonaam1234/PGPortfolio. Use the data: http://coinmarketcap.com/ & poloniex (https://github.com/sonaam1234/PGPortfolio/blob/master/pgportfolio/marketdata/poloniex.py)
+- source 4: https://arxiv.org/pdf/1706.10059.pdf, [A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem], github: https://github.com/sonaam1234/PGPortfolio. Use the data: http://coinmarketcap.com/ & poloniex (https://github.com/sonaam1234/PGPortfolio/blob/master/pgportfolio/marketdata/poloniex.py), use back-test
 
 - github code + data + paper summary: https://github.com/firmai/machine-learning-asset-management
 
