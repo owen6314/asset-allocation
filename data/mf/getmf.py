@@ -5,7 +5,7 @@ import os
 import pandas as pd
 
 # possible choice: 1d,5d,1mo,3mo,6mo,1y,2y,5y,10y,ytd,max
-time_period = 'max'
+time_period = '5y'
 
 def download_stock(stock):
 	""" try to query the iex for a stock, if failed note with print """
@@ -23,10 +23,7 @@ if __name__ == '__main__':
 
 	now_time = datetime.now()
 	
-	df = pd.read_csv('etf_list.csv')
-	
-	etfs = df['Symbol'].tolist()
-		
+	mfs = ['TIBIX','THOIX','TGVIX','TBWIX','TINGX','THDIX','TVIFX','THIGX','TLDIX','LTUIX','THIIX','TSIIX','TLMIX','LTMIX','THMIX','LTCIX','THNIX','TNYIX','TSSIX','THLSX']
 	bad_names =[] #to keep track of failed queries
 
 	"""here we use the concurrent.futures module's ThreadPoolExecutor
@@ -36,9 +33,9 @@ if __name__ == '__main__':
 	#set the maximum thread number
 	max_workers = 50
 
-	workers = min(max_workers, len(etfs)) #in case a smaller number of stocks than threads was passed in
+	workers = min(max_workers, len(mfs)) #in case a smaller number of stocks than threads was passed in
 	with futures.ThreadPoolExecutor(workers) as executor:
-		res = executor.map(download_stock, etfs)
+		res = executor.map(download_stock, mfs)
 
 	
 	""" Save failed queries to a text file to retry """
