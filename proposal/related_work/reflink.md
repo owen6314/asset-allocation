@@ -19,13 +19,6 @@
 - MaxSharpeAgent
 - MaxDecorrelationAgent
 
-### types - risk related
-- Autoencoder risk: https://arxiv.org/pdf/1605.07230.pdf  (paper), code avaliable
-- Risk Parity/Risk Budgeting Portfolio in Python: https://thequantmba.wordpress.com/2016/12/14/risk-parityrisk-budgeting-portfolio-in-python/ (with python code)
-
-### types - PCA
-- choose assets that are uncorrelated to the market strategies
-
 ### Reinforcement learning
 
 - !!! [Main source]The Effect of Cryptocurrency on Investment Portfolio
@@ -33,22 +26,33 @@ Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid
 
 - !!! [Use as intro/why we want to do crypto-curr]: Cryptocurrency: A new investment opportunity? https://ink.library.smu.edu.sg/cgi/viewcontent.cgi?article=6783&context=lkcsb_research
 
-- source 4: https://arxiv.org/pdf/1706.10059.pdf, [A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem], github: https://github.com/sonaam1234/PGPortfolio. Use the data: http://coinmarketcap.com/ & poloniex (https://github.com/sonaam1234/PGPortfolio/blob/master/pgportfolio/marketdata/poloniex.py), use back-test
-
-- github code + data + paper summary: https://github.com/firmai/machine-learning-asset-management
+- source 4: https://arxiv.org/pdf/1706.10059.pdf, [A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem], github: https://github.com/ZhengyaoJiang/PGPortfolio, https://github.com/sonaam1234/PGPortfolio. Use the data: http://coinmarketcap.com/ & poloniex (https://github.com/sonaam1234/PGPortfolio/blob/master/pgportfolio/marketdata/poloniex.py), use back-test
 
 - source 1: https://medium.com/swlh/ai-for-portfolio-management-from-markowitz-to-reinforcement-learning-cffedcbba566
 - need to use this: https://arxiv.org/abs/1509.02971 (Continuous control with deep reinforcement learning)
 
-- source 3: https://github.com/YinchuanCU/Reinforcement-learning-for-portfolio-allocation, https://arxiv.org/pdf/1907.01503.pdf
-- use Adaptive DeepDeterministic Reinforcement Learning, use Dow Jones 30 component stocks
-- result: Adaptive DDPG outperforms the baselines in terms of the investment return and the Sharpe ratio.
+- source 3: https://arxiv.org/pdf/1907.01503.pdf: has some common concepts & introduce traditional methods, don't use its algorithm!
+
+DDPG:
+- https://arxiv.org/pdf/1509.02971.pdf, Lillicrap, T. P., Hunt, J. J., Pritzel, A., Heess, N., Erez,
+T., Tassa, Y., Silver, D., and Wierstra, D. Continuous
+control with deep reinforcement learning. arXiv preprint
+arXiv:1509.02971, 2015.
+
+-Bao, W. and Liu, X.-Y. Multi-agent deep reinforcement
+learning for liquidation strategy analysis. In ICML Workshop on Applications and Infrastructure for Multi-Agent
+Learning, 2019.
+
 
 - source 5: https://github.com/liangzp/Reinforcement-learning-in-portfolio-management-  continuous reinforcement learning algorithms, Deep Deterministic Policy Gradient (DDPG), Proximal Policy Optimization (PPO) and Policy Gradient (PG)
 
 - source 6: [Deep Reinforcement Learning for Portfolio Management], Chi Zhang, Corey Chen, Limian Zhang, http://www-scf.usc.edu/~zhan527/post/cs599/ .  Use Deep Deterministic Policy Gradient (DDPG) & Imitation Learning
 
 - source 7: https://www.groundai.com/project/deep-reinforcement-learning-in-portfolio-management/1,  deep deterministic policy gradient (DDPG) and proximal policy optimization (PPO) --> DDPG is better
+
+- Summary link:
+https://github.com/Draichi/Portfolio-Management-list
+file:///Users/lintianyi/Desktop/data-04-00110-v2.pdf
 
 
 ## Dataset
