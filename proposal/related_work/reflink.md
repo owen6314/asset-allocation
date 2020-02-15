@@ -20,35 +20,22 @@
 - MaxDecorrelationAgent
 
 ### Reinforcement learning
+- 1. [deep RL + EIIE topology] A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem
+papaer link: https://arxiv.org/pdf/1706.10059.pdf,
+github: https://github.com/ZhengyaoJiang/PGPortfolio, https://github.com/sonaam1234/PGPortfolio. 
+Note: it uses back-test
 
-- !!! [Main source]The Effect of Cryptocurrency on Investment Portfolio
-Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid=171&doi=10.11648/j.jfa.20170506.14
+- [MaxReturn, Maxsharpe agents, etc.]: https://medium.com/swlh/ai-for-portfolio-management-from-markowitz-to-reinforcement-learning-cffedcbba566
+github: https://github.com/Rachnog/Deep-Portfolio-Management/blob/master/agent.py
 
-- !!! [Use as intro/why we want to do crypto-curr]: Cryptocurrency: A new investment opportunity? https://ink.library.smu.edu.sg/cgi/viewcontent.cgi?article=6783&context=lkcsb_research
+- [easy PG implementation]: https://github.com/liangzp/Reinforcement-learning-in-portfolio-management- 
 
-- source 4: https://arxiv.org/pdf/1706.10059.pdf, [A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem], github: https://github.com/ZhengyaoJiang/PGPortfolio, https://github.com/sonaam1234/PGPortfolio. Use the data: http://coinmarketcap.com/ & poloniex (https://github.com/sonaam1234/PGPortfolio/blob/master/pgportfolio/marketdata/poloniex.py), use back-test
+- source 8: Model-based Deep Reinforcement Learning for Dynamic Portfolio Optimization, https://arxiv.org/pdf/1901.08740.pdf
+- DQN: Jin O, El-Saawy H. Portfolio management using reinforcement learning[J]. Stanford University, 2016.
 
-- source 1: https://medium.com/swlh/ai-for-portfolio-management-from-markowitz-to-reinforcement-learning-cffedcbba566
-- need to use this: https://arxiv.org/abs/1509.02971 (Continuous control with deep reinforcement learning)
+- source 9: deep q learning， G. Jeong and H. Y. Kim. Improving financial trading decisions using deep Q-learning: Predicting the number of shares, action strategies, and transfer learning. Expert system with applications, 117:125–138, 2019.
 
-- source 3: https://arxiv.org/pdf/1907.01503.pdf: has some common concepts & introduce traditional methods, don't use its algorithm!
-
-DDPG:
-- https://arxiv.org/pdf/1509.02971.pdf, Lillicrap, T. P., Hunt, J. J., Pritzel, A., Heess, N., Erez,
-T., Tassa, Y., Silver, D., and Wierstra, D. Continuous
-control with deep reinforcement learning. arXiv preprint
-arXiv:1509.02971, 2015.
-
--Bao, W. and Liu, X.-Y. Multi-agent deep reinforcement
-learning for liquidation strategy analysis. In ICML Workshop on Applications and Infrastructure for Multi-Agent
-Learning, 2019.
-
-
-- source 5: https://github.com/liangzp/Reinforcement-learning-in-portfolio-management-  continuous reinforcement learning algorithms, Deep Deterministic Policy Gradient (DDPG), Proximal Policy Optimization (PPO) and Policy Gradient (PG)
-
-- source 6: [Deep Reinforcement Learning for Portfolio Management], Chi Zhang, Corey Chen, Limian Zhang, http://www-scf.usc.edu/~zhan527/post/cs599/ .  Use Deep Deterministic Policy Gradient (DDPG) & Imitation Learning
-
-- source 7: https://www.groundai.com/project/deep-reinforcement-learning-in-portfolio-management/1,  deep deterministic policy gradient (DDPG) and proximal policy optimization (PPO) --> DDPG is better
+Du et al. [47] use Q-Learning (without a neural network) in discretized market states to optimize a portfolio of a riskless asset (cash) and a risky asset (stock market portfolio) with transaction costs considered at each rebalancing period. 
 
 - Summary link:
 https://github.com/Draichi/Portfolio-Management-list
@@ -62,3 +49,11 @@ file:///Users/lintianyi/Desktop/data-04-00110-v2.pdf
   https://github.com/selimamrouni/Deep-Portfolio-Management-Reinforcement-Learning/blob/master/data_pipe_poloniex.ipynb
 - crypto-compare.com: need to email to get access--> https://data.cryptocompare.com/data/historical
 - Top 100 Cryptocurrencies by Market Capitalization: https://coinmarketcap.com/
+
+
+## Paper writing reference
+- [Use as intro ]The Effect of Cryptocurrency on Investment Portfolio Effectiveness: http://www.sciencepublishinggroup.com/journal/paperinfo?journalid=171&doi=10.11648/j.jfa.20170506.14
+
+- [Use as intro/why we want to do crypto-curr]: Cryptocurrency: A new investment opportunity?https://ink.library.smu.edu.sg/cgi/viewcontent.cgi?article=6783&context=lkcsb_research
+
+- [past literature review]: Deep Reinforcement Learning-based Portfolio Management By NITIN KANWAR: https://rc.library.uta.edu/uta-ir/bitstream/handle/10106/28108/KANWAR-THESIS-2019.pdf?sequence=1&isAllowed=y
