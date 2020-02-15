@@ -20,7 +20,7 @@
 - MaxDecorrelationAgent
 
 ### Reinforcement learning
-- 1. [deep RL + EIIE topology] A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem
+- [deep RL + EIIE topology] A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem
 papaer link: https://arxiv.org/pdf/1706.10059.pdf,
 github: https://github.com/ZhengyaoJiang/PGPortfolio, https://github.com/sonaam1234/PGPortfolio. 
 Note: it uses back-test
