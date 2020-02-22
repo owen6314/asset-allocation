@@ -22,7 +22,7 @@
 ### Reinforcement learning
 - (main paper) deep RL + EIIE topology --> A Deep Reinforcement Learning Framework for the Financial Portfolio Management Problem
 papaer link: https://arxiv.org/pdf/1706.10059.pdf,
-github: https://github.com/ZhengyaoJiang/PGPortfolio, https://github.com/sonaam1234/PGPortfolio. 
+github: https://github.com/ZhengyaoJiang/PGPortfolio
 Note: it uses back-test
 
 - MaxReturn, Maxsharpe agents, etc.--> https://medium.com/swlh/ai-for-portfolio-management-from-markowitz-to-reinforcement-learning-cffedcbba566, github: https://github.com/Rachnog/Deep-Portfolio-Management/blob/master/agent.py
