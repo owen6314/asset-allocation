@@ -1,3 +1,3 @@
 # Data
-Scripts to get data using Yahoo! Finance Python API.
+All works related to data (getting, cleaning, processing...).
 
