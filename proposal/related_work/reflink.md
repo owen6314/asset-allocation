@@ -36,6 +36,7 @@ P13 on https://www.econstor.eu/bitstream/10419/183139/1/1032172355.pdf
 
 - A Multiagent Approach to Q-Learning for Daily Stock Trading （2007）： http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.452.2502&rep=rep1&type=pdf
 
+- github:https://github.com/llSourcell/Q-Learning-for-Trading
 
 - Two selected US stocks (2001-2016), Daily Deep Q-learning (DQL) techniques can be applied to approximatethe action-value function in RL trading system, paper: shttp://cs229.stanford.edu/proj2016/report/JinElSaawy-PortfolioManagementusingReinforcementLearning-report.pdf, duscussed on P10 in https://www.econstor.eu/bitstream/10419/183139/1/1032172355.pdf
 
