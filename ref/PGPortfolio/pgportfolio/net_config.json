@@ -18,13 +18,13 @@
 
   "input":{
     "window_size":31,
-    "coin_number":11,
+    "coin_number":8,
     "global_period":1800,
     "feature_number":3,
-    "test_portion":0.08,
+    "test_portion":0.05,
     "online":false,
-    "start_date":"2015/07/01",
-    "end_date":"2016/07/01",
+    "start_date":"2016/07/01",
+    "end_date":"2019/07/01",
     "volume_average_days":30
   },
 

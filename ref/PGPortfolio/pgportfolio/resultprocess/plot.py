@@ -95,8 +95,8 @@ def plot_backtest(config, algos, labels=None):
     plt.tight_layout()
     ax.legend(loc="upper left", prop={"size":10})
     fig.autofmt_xdate()
-    plt.savefig("result.eps", bbox_inches='tight',
-                pad_inches=0)
+    #plt.savefig("result.eps", bbox_inches='tight',
+    #            pad_inches=0)
     plt.show()
 
 
