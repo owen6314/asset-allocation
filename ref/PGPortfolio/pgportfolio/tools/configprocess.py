@@ -38,7 +38,6 @@ def fill_train_config(train_config):
 def fill_input_default(input_config):
     set_missing(input_config, "save_memory_mode", False)
     set_missing(input_config, "portion_reversed", False)
-    set_missing(input_config, "market", "poloniex")
     set_missing(input_config, "norm_method", "absolute")
     set_missing(input_config, "is_permed", False)
     set_missing(input_config, "fake_ratio", 1)
