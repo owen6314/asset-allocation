@@ -53,6 +53,8 @@ def train_all(processes=1, device="cpu"):
     all_subdir.sort()
     pool = []
     for dir in all_subdir:
+        if dir == ".DS_Store":
+            continue
         # train only if the log dir does not exist
         if not str.isdigit(dir):
             return

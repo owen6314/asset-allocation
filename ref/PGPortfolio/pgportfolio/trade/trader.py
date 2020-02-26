@@ -7,7 +7,7 @@ import time
 
 
 class Trader:
-    def __init__(self, waiting_period, config, total_steps, net_dir, agent=None, initial_BTC=1.0, agent_type="nn"):
+    def __init__(self, waiting_period, config, total_steps, net_dir, agent=None, initial_asset=10000.0, agent_type="nn"):
         """
         @:param agent_type: string, could be nn or traditional
         @:param agent: the traditional agent object, if the agent_type is traditional
@@ -31,8 +31,8 @@ class Trader:
             raise ValueError()
         self._agent = agent
 
-        # the total assets is calculated with BTC
-        self._total_capital = initial_BTC
+        # the total assets is calculated with cash
+        self._total_capital = initial_asset
         self._window_size = config["input"]["window_size"]
         self._coin_number = config["input"]["coin_number"]
         self._commission_rate = config["trading"]["trading_consumption"]
@@ -95,7 +95,7 @@ class Trader:
             self.rolling_train()
         if not self.__class__.__name__=="BackTest":
             self._last_omega = omega.copy()
-        logging.info('total assets are %3f BTC' % self._total_capital)
+        logging.info('total assets are %3f  ' % self._total_capital)
         logging.debug("="*30)
         trading_time = time.time() - starttime
         if trading_time < self._period:

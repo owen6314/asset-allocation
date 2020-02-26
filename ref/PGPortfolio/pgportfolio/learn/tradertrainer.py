@@ -207,7 +207,6 @@ class TraderTrainer:
 
     def __log_result_csv(self, index, time):
         from pgportfolio.trade import backtest
-        dataframe = None
         csv_dir = './train_package/train_summary.csv'
         tflearn.is_training(False, self._agent.session)
         v_pv, v_log_mean, benefit_array, v_log_mean_free =\

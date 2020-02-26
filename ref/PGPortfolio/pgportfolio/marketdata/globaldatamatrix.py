@@ -50,17 +50,6 @@ class HistoryManager:
         logging.info("feature type list is %s" % str(features))
         self.__checkperiod(period)
         connection = sqlite3.connect(DATABASE_DIR)
-        """
-        sql = "SELECT distinct date from history order by date asc"
-        time_index = pd.read_sql_query(sql, con=connection)
-        time_index = pd.to_datetime(time_index)
-        time_index = time_index.squeeze()
-        """
-
-        pd.set_option('display.max_rows', None)
-        pd.set_option('display.max_columns', None)
-        pd.set_option('display.width', None)
-        pd.set_option('display.max_colwidth', -1)
 
         time_index = pd.to_datetime(list(range(start, end+1, period)), unit='s')
         time_index = time_index.normalize()
@@ -112,7 +101,7 @@ class HistoryManager:
             connection.close()
         return panel
 
-    # select top coin_number of coins by volume from start to end
+    # select all available coins database
     def select_coins(self, start, end):
         logging.info("select coins offline from %s to %s" % (datetime.fromtimestamp(start).strftime('%Y-%m-%d %H:%M'),
                                                                 datetime.fromtimestamp(end).strftime('%Y-%m-%d %H:%M')))
@@ -161,7 +150,6 @@ class HistoryManager:
             if min_date==None or max_date==None:
                 self.__fill_data(start, end, coin, cursor)
 
-            # if there is no data
         finally:
             connection.commit()
             connection.close()

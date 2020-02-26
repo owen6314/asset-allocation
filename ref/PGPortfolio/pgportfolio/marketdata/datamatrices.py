@@ -19,10 +19,6 @@ class DataMatrices:
         """
         :param start: Unix time
         :param end: Unix time
-        :param access_period: the data access period of the input matrix.
-        :param trade_period: the trading period of the agent.
-        :param global_period: the data access period of the global price matrix.
-                              if it is not equal to the access period, there will be inserted observations
         :param coin_filter: number of coins that would be selected
         :param window_size: periods of input data
         :param train_portion: portion of training set
