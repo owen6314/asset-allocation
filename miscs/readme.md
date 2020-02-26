@@ -1,4 +1,4 @@
-# Scripts
+# Miscs
 Some misc. scripts/ppts/figures used in different stages of this project.
 
 e.g.
