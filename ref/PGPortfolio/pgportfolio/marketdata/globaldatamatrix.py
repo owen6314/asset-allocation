@@ -12,10 +12,8 @@ import logging
 
 
 class HistoryManager:
-    # if offline ,the coin_list could be None
     # NOTE: return of the sqlite results is a list of tuples, each tuple is a row
     def __init__(self, coin_number, end):
-        self.__storage_period = DAY
         self._coin_number = coin_number
         self.__coins = None
 
@@ -90,6 +88,7 @@ class HistoryManager:
                         raise ValueError(msg)
                     serial_data = pd.read_sql_query(sql, con=connection,
                                                     parse_dates=["date_norm"])
+
                     temp = serial_data["date_norm"].dt.normalize()
                     del serial_data['date_norm']
                     serial_data.index = temp
@@ -101,7 +100,7 @@ class HistoryManager:
             connection.close()
         return panel
 
-    # select all available coins database
+    # select all available coins from database
     def select_coins(self, start, end):
         logging.info("select coins offline from %s to %s" % (datetime.fromtimestamp(start).strftime('%Y-%m-%d %H:%M'),
                                                                 datetime.fromtimestamp(end).strftime('%Y-%m-%d %H:%M')))
