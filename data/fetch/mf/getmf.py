@@ -3,6 +3,8 @@ from concurrent import futures
 import yfinance as yf
 import os
 import pandas as pd
+import requests 
+from bs4 import BeautifulSoup
 
 # possible choice: 1d,5d,1mo,3mo,6mo,1y,2y,5y,10y,ytd,max
 time_period = '5y'
@@ -18,12 +20,35 @@ def download_stock(stock):
 	except:
 		bad_names.append(stock)
 		print('bad: %s' % (stock))
+		
+def get_top_symbols():
+	names=[]
+
+	CryptoCurrenciesUrl = "https://finance.yahoo.com/cryptocurrencies"
+	r= requests.get(CryptoCurrenciesUrl)
+	data=r.text
+	soup = BeautifulSoup(data, features="html.parser")
+	allList = soup.find_all('tr', attrs={'class':'simpTblRow'})
+
+	count = 0
+	for listing in allList:
+	   # print (listing)
+	   for symbols in soup.find_all('td', attrs = {'aria-label':'Symbol'}):
+	      if count < 10:
+	         names.append(symbols.text)
+	         count += 1
+	      else:
+	         break
+
+	print (names)
+	return names
 
 if __name__ == '__main__':
 
 	now_time = datetime.now()
-	
-	mfs = ['TIBIX','THOIX','TGVIX','TBWIX','TINGX','THDIX','TVIFX','THIGX','TLDIX','LTUIX','THIIX','TSIIX','TLMIX','LTMIX','THMIX','LTCIX','THNIX','TNYIX','TSSIX','THLSX']
+
+	mfs = get_top_symbols()
+	#mfs = ['TIBIX','THOIX','TGVIX','TBWIX','TINGX','THDIX','TVIFX','THIGX','TLDIX','LTUIX','THIIX','TSIIX','TLMIX','LTMIX','THMIX','LTCIX','THNIX','TNYIX','TSSIX','THLSX']
 	bad_names =[] #to keep track of failed queries
 
 	"""here we use the concurrent.futures module's ThreadPoolExecutor

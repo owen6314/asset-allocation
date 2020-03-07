@@ -4,14 +4,11 @@ import yfinance as yf
 import os
 import pandas as pd
 import json
+import requests 
+from bs4 import BeautifulSoup
 
 # possible choice: 1d,5d,1mo,3mo,6mo,1y,2y,5y,10y,ytd,max
-time_period = '2y'
-# valid intervals: 1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo
-# default = '1d'
-interval = '1h'
-
-output_dir = "ctypto_data/"
+time_period = 'max'
 
 def download_stock(stock):
 	""" try to query the iex for a stock, if failed note with print """
@@ -26,10 +23,32 @@ def download_stock(stock):
 		bad_names.append(stock)
 		print('bad: %s' % (stock))
 
+def get_top_symbols():
+	names=[]
+
+	CryptoCurrenciesUrl = "https://finance.yahoo.com/cryptocurrencies"
+	r= requests.get(CryptoCurrenciesUrl)
+	data=r.text
+	soup = BeautifulSoup(data, features="html.parser")
+	allList = soup.find_all('tr', attrs={'class':'simpTblRow'})
+
+	count = 0
+	for listing in allList:
+	   # print (listing)
+	   for symbols in soup.find_all('td', attrs = {'aria-label':'Symbol'}):
+	      if count < 10:
+	         names.append(symbols.text)
+	         count += 1
+	      else:
+	         break
+
+	print (names)
+	return names
+
 if __name__ == '__main__':
-	if not os.path.exists(output_dir):
-		os.mkdir(output_dir)
+
 	now_time = datetime.now()
+	
 	
 	temp = []
 	with open('crypto.json', 'r') as f:
@@ -37,8 +56,10 @@ if __name__ == '__main__':
 		for key, value in data.items():
 			temp.append(key)
 	
-	cryptos = list(map(lambda x: x + '-USD', temp))
-		
+	# cryptos = list(map(lambda x: x + '-USD', temp))
+
+
+	cryptos = get_top_symbols()	
 	bad_names =[] #to keep track of failed queries
 
 	"""here we use the concurrent.futures module's ThreadPoolExecutor
