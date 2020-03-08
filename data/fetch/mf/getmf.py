@@ -24,7 +24,7 @@ def download_stock(stock):
 def get_top_symbols():
 	names=[]
 
-	CryptoCurrenciesUrl = "https://finance.yahoo.com/cryptocurrencies"
+	CryptoCurrenciesUrl = "https://finance.yahoo.com/mutualfunds"
 	r= requests.get(CryptoCurrenciesUrl)
 	data=r.text
 	soup = BeautifulSoup(data, features="html.parser")
