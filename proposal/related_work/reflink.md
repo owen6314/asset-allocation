@@ -30,7 +30,9 @@ Note: it uses back-test
 - easy PG implementation --> https://github.com/liangzp/Reinforcement-learning-in-portfolio-management- 
 
 ### Q-learning
-- (main paper) A Multi-agent Q-learning Framework for Optimizing Stock Trading Systems, by Jae Won Lee and Jangmin,paper: https://link.springer.com/content/pdf/10.1007%2F3-540-46146-9_16.pdf, github: https://github.com/laikasinjason/deep-q-learning-trading-system-on-hk-stocks-market, 2002
+- (main paper) A Multi-agent Q-learning Framework for Optimizing Stock Trading Systems, by Jae Won Lee and Jangmin,paper: https://link.springer.com/content/pdf/10.1007%2F3-540-46146-9_16.pdf, github: https://github.com/llSourcell/Q-Learning-for-Trading
+
+- (backup) https://github.com/laikasinjason/deep-q-learning-trading-system-on-hk-stocks-market, 2002
 
 P13 on https://www.econstor.eu/bitstream/10419/183139/1/1032172355.pdf
 
