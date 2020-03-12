@@ -1,4 +1,3 @@
-# import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.optimizers import Adam
@@ -17,12 +16,3 @@ def mlp(n_obs, n_action, n_hidden_layer=1, n_neuron_per_layer=32,
     model.compile(loss=loss, optimizer=Adam())
     print(model.summary())
     return model
-
-    # model.add(Dense(units=64, input_dim=n_obs, activation="relu"))
-    # model.add(Dense(units=64, input_dim=n_obs, activation="relu"))
-    # model.add(Dense(units=32, activation="relu"))
-    # model.add(Dense(units=8, activation="relu"))
-    # model.add(Dense(n_action, activation="linear"))
-    # model.compile(loss="mse", optimizer=Adam(lr=0.001))
-    # print(model.summary())
-    # return model

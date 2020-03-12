@@ -10,12 +10,9 @@ import matplotlib.dates as mdate
 import matplotlib.dates as mdates
 
 
-def get_data(stock_name, stock_tabel):
+def get_data(stock_name):
     """ Returns a 3 x n_step array """
-
-    industry = pd.read_csv('data/{}.csv'.format(stock_tabel))["code"].astype("str")
     data = pd.read_csv('data/{}.csv'.format(stock_name)).drop(columns="DateTime")
-    data = data[industry].astype("float")
     data = np.array(data.T)
     return data
 
@@ -48,9 +45,9 @@ def maybe_make_dir(directory):
 def buy_and_hold_benchmark(stock_name, init_invest, test):
     df = pd.read_csv('./data/{}.csv'.format(stock_name)).iloc[test:, :]
     dates = df['DateTime'].astype("str")
-    per_num_holding = init_invest // 19
+    per_num_holding = init_invest // 2
     num_holding = per_num_holding // df.iloc[0, 1:]
-    balance_left = init_invest % 19 + ([per_num_holding for _ in range(19)] % df.iloc[0, 1:]).sum()
+    balance_left = init_invest % 2 + ([per_num_holding for _ in range(2)] % df.iloc[0, 1:]).sum()
     buy_and_hold_portfolio_values = (df.iloc[:, 1:] * num_holding).sum(axis=1) + balance_left
     buy_and_hold_return = buy_and_hold_portfolio_values.iloc[-1] - init_invest
     return dates, buy_and_hold_portfolio_values, buy_and_hold_return
@@ -105,6 +102,3 @@ def visualize_portfolio_val():
     ax[1].tick_params(axis='both', labelsize=12)
 
     plt.show()
-
-
-# visualize_portfolio_val()

@@ -31,7 +31,6 @@ class DataMatrices:
         start = int(start)
         self.__end = int(end)
 
-        # assert window_size >= MIN_NUM_PERIOD
         self.__coin_no = coin_filter
         type_list = get_type_list(feature_number)
         self.__features = type_list

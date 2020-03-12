@@ -8,12 +8,11 @@ from envs import TradingEnv
 from agent import DQNAgent
 from utils import get_data, get_scaler, maybe_make_dir, plot_all
 
-stock_name = "all_set_1"
-stock_table = "stock_table_1"
+stock_name = "all_set"
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-e', '--episode', type=int, default=2000,
+    parser.add_argument('-e', '--episode', type=int, default=500,
                         help='number of episode to run')
     parser.add_argument('-b', '--batch_size', type=int, default=32,
                         help='batch size for experience replay')
@@ -29,15 +28,11 @@ if __name__ == '__main__':
 
     timestamp = time.strftime('%Y%m%d%H%M')
 
-    data = get_data(stock_name, stock_table)
-    print(data.shape[1])
-    train = round(data.shape[1]*0.98)
-    # test = round(data.shape[1]*0.99)
-    # train = 979
-    test = 979
-    # print("train:{}, test:{}".format(data[:, train-1], data[:, test]))
-    train_data = data[:, :test]
-    test_data = data[:, test:]
+    data = get_data(stock_name)
+    train_size = len(data[0])
+    test_pos = round(train_size * 0.8)
+    train_data = data[:, :test_pos]
+    test_data = data[:, test_pos:]
 
     env = TradingEnv(train_data, args.initial_invest)
     state_size = env.observation_space.shape
@@ -54,7 +49,6 @@ if __name__ == '__main__':
         agent.load(args.weights)
         # when test, the timestamp is same as time when weights was trained
         timestamp = re.findall(r'\d{12}', args.weights)[0]
-        # daily_portfolio_value = [env.init_invest]
         daily_portfolio_value = []
 
     for e in range(args.episode):
@@ -70,9 +64,8 @@ if __name__ == '__main__':
                 daily_portfolio_value.append(info['cur_val'])
             state = next_state
             if done:
-
                 if args.mode == "test" and e % 100 == 0:
-                    plot_all(stock_name, daily_portfolio_value, env, test + 1)
+                    plot_all(stock_name, daily_portfolio_value, env, test_pos + 1)
                 daily_portfolio_value = []
                 print("episode: {}/{}, episode end value: {}".format(
                     e + 1, args.episode, info['cur_val']))
@@ -89,4 +82,3 @@ if __name__ == '__main__':
     # save portfolio value history to disk
     with open('portfolio_val/{}-{}.p'.format(timestamp, args.mode), 'wb') as fp:
         pickle.dump(portfolio_value, fp)
-
