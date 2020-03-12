@@ -6,7 +6,6 @@ from keras.optimizers import Adam
 def mlp(n_obs, n_action, n_hidden_layer=1, n_neuron_per_layer=32,
         activation='relu', loss='mse'):
     """ A multi-layer perceptron """
-    print(n_action)
     model = Sequential()
 
     model.add(Dense(n_neuron_per_layer, input_dim=n_obs, activation=activation))

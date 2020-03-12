@@ -2,7 +2,6 @@ import pickle
 from datetime import datetime
 import os
 from matplotlib import pyplot as plt
-import h5py
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
@@ -102,3 +101,6 @@ def visualize_portfolio_val():
     ax[1].tick_params(axis='both', labelsize=12)
 
     plt.show()
+
+if __name__ == "__main__":
+    visualize_portfolio_val()
