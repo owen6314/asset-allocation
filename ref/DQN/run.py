@@ -64,7 +64,7 @@ if __name__ == '__main__':
                 daily_portfolio_value.append(info['cur_val'])
             state = next_state
             if done:
-                if args.mode == "test" and e % 10 == 0:
+                if args.mode == "test" and e % 20 == 0:
                     plot_all(stock_name, daily_portfolio_value, env, test_pos + 1)
                 daily_portfolio_value = []
                 print("episode: {}/{}, episode end value: {}".format(
