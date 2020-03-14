@@ -1,3 +1,4 @@
 process/sample*
+process/dataset
 *.db
 .idea

@@ -44,9 +44,9 @@ def maybe_make_dir(directory):
 def buy_and_hold_benchmark(stock_name, init_invest, test):
     df = pd.read_csv('./data/{}.csv'.format(stock_name)).iloc[test:, :]
     dates = df['DateTime'].astype("str")
-    per_num_holding = init_invest // 2
+    per_num_holding = init_invest // 181
     num_holding = per_num_holding // df.iloc[0, 1:]
-    balance_left = init_invest % 2 + ([per_num_holding for _ in range(2)] % df.iloc[0, 1:]).sum()
+    balance_left = init_invest % 181 + ([per_num_holding for _ in range(181)] % df.iloc[0, 1:]).sum()
     buy_and_hold_portfolio_values = (df.iloc[:, 1:] * num_holding).sum(axis=1) + balance_left
     buy_and_hold_return = buy_and_hold_portfolio_values.iloc[-1] - init_invest
     return dates, buy_and_hold_portfolio_values, buy_and_hold_return
@@ -61,23 +61,21 @@ def plot_all(stock_name, daily_portfolio_value, env, test):
 
     dates, buy_and_hold_portfolio_values, buy_and_hold_return = buy_and_hold_benchmark(stock_name, env.init_invest,
                                                                                        test)
-    agent_return = daily_portfolio_value[-1] - env.init_invest
-    ax.set_title('{} vs. Buy and Hold'.format("DQN"))
+    ax.set_title('fAPV of DQN Method')
     dates = [datetime.strptime(d, '%Y%m%d').date() for d in dates]
-    ax.plot(dates, daily_portfolio_value, color='green',
-            label='{} Total Return: ${:.2f}'.format("DQN", agent_return))
-    ax.plot(dates, buy_and_hold_portfolio_values, color='blue',
-            label='{} Buy and Hold Total Return: ${:.2f}'.format(stock_name, buy_and_hold_return))
-    ax.set_ylabel('Portfolio Value (RMB)')
+    ax.plot(dates, daily_portfolio_value, color='red',
+            label='DQN')
+    # ax.plot(dates, buy_and_hold_portfolio_values, color='blue', label='Buy and Hold')
+    ax.set_ylabel('Portfolio Value (USD)')
 
     ax.xaxis.set_major_formatter(mdate.DateFormatter('%Y%m%d'))
-    plt.xticks(pd.date_range('2018-1-02', '2019-08-22', freq='1m'))
+    plt.xticks(pd.date_range('2019-02-28', '2020-02-11', freq='1m'))
     ax.legend()
     plt.gcf().autofmt_xdate()
     plt.subplots_adjust(hspace=0.5)
     plt.show()
 
-
+'''
 def visualize_portfolio_val():
     """ visualize the portfolio_val file """
     with open('portfolio_val/201912141307-train.p', 'rb') as f:
@@ -101,6 +99,4 @@ def visualize_portfolio_val():
     ax[1].tick_params(axis='both', labelsize=12)
 
     plt.show()
-
-if __name__ == "__main__":
-    visualize_portfolio_val()
+'''
