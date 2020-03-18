@@ -36,7 +36,7 @@ def get_top_symbols():
 	for listing in allList:
 	   # print (listing)
 	   for symbols in soup.find_all('td', attrs = {'aria-label':'Symbol'}):
-	      if count < 10:
+	      if count < 15:
 	         names.append(symbols.text)
 	         count += 1
 	      else:

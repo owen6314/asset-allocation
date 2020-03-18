@@ -23,7 +23,7 @@ def download_stock(stock):
 def get_top_symbols():
 	activeStock = si.get_day_most_active()
 	symbols = activeStock['Symbol'].tolist()
-	symbols = symbols[:10]
+	symbols = symbols[:15]
 
 	print (symbols)
 	return symbols
