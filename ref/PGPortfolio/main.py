@@ -52,11 +52,7 @@ def main():
 
     if options.mode == "train":
         import pgportfolio.autotrain.training
-        if not options.algo:
-            pgportfolio.autotrain.training.train_all(int(options.processes), options.device)
-        else:
-            for folder in options.folder:
-                raise NotImplementedError()
+        pgportfolio.autotrain.training.train_all(int(options.processes), options.device)
     elif options.mode == "generate":
         import pgportfolio.autotrain.generate as generate
         logging.basicConfig(level=logging.INFO)

@@ -45,8 +45,6 @@ class Trader:
         if self.__class__.__name__=="BackTest":
             # self._initialize_logging_data_frame(initial_BTC)
             self._logging_data_frame = None
-            # self._disk_engine =  sqlite3.connect('./database/back_time_trading_log.db')
-            # self._initialize_data_base()
         self._current_error_state = 'S000'
         self._current_error_info = ''
 

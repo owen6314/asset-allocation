@@ -34,11 +34,11 @@ def train_one(save_path, config, log_file_dir, index, logfile_level, console_lev
 
 def train_all(processes=1, device="cpu"):
     """
-    train all the agen  ts in the train_package folders
+    train all the agents in the train_package folders
 
     :param processes: the number of the processes. If equal to 1, the logging level is debug
                       at file and info at console. If greater than 1, the logging level is
-                      info at file and warming at console.
+                      info at file and warning at console.
     """
     if processes == 1:
         console_level = logging.INFO
