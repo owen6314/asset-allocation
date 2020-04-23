@@ -10,7 +10,7 @@ from pgportfolio.learn.tradertrainer import TraderTrainer
 from pgportfolio.tools.configprocess import load_config
 
 
-def train_one(save_path, config, log_file_dir, index, logfile_level, console_level, device):
+def train_one(save_path, config, log_file_dir, index, logfile_level, console_level, device, initial_asset):
     """
     train an agent
     :param save_path: the path to save the tensorflow model (.ckpt), could be None
@@ -30,9 +30,9 @@ def train_one(save_path, config, log_file_dir, index, logfile_level, console_lev
         console.setLevel(console_level)
         logging.getLogger().addHandler(console)
     print("training at %s started" % index)
-    return TraderTrainer(config, save_path=save_path, device=device).train_net(log_file_dir=log_file_dir, index=index)
+    return TraderTrainer(config, save_path=save_path, device=device).train_net(log_file_dir=log_file_dir, index=index, initial_asset=initial_asset)
 
-def train_all(processes=1, device="cpu"):
+def train_all(processes=1, device="cpu", initial_asset = 10000):
     """
     train all the agents in the train_package folders
 
@@ -48,11 +48,14 @@ def train_all(processes=1, device="cpu"):
         logfile_level = logging.INFO
     train_dir = "train_package"
     if not os.path.exists("./" + train_dir): #if the directory does not exist, creates one
+        print("Doesn't exist")
         os.makedirs("./" + train_dir)
     all_subdir = os.listdir("./" + train_dir)
+    print(all_subdir)
     all_subdir.sort()
     pool = []
     for dir in all_subdir:
+        print(dir)
         if dir == ".DS_Store":
             continue
         # train only if the log dir does not exist
@@ -64,7 +67,7 @@ def train_all(processes=1, device="cpu"):
                 "./" + train_dir + "/" + dir + "/netfile",
                 load_config(dir),
                 "./" + train_dir + "/" + dir + "/tensorboard",
-                dir, logfile_level, console_level, device))
+                dir, logfile_level, console_level, device, initial_asset))
             p.start()
             pool.append(p)
         else:

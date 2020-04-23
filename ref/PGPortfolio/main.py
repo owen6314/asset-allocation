@@ -6,7 +6,6 @@ import time
 from argparse import ArgumentParser
 from datetime import datetime
 
-from pgportfolio.tools.configprocess import preprocess_config
 from pgportfolio.tools.configprocess import load_config
 from pgportfolio.tools.trade import save_test_data
 from pgportfolio.tools.shortcut import execute_backtest
@@ -39,6 +38,8 @@ def build_parser():
                         help="device to be used to train")
     parser.add_argument("--folder", dest="folder", type=int,
                         help="folder(int) to load the config, neglect this option if loading from ./pgportfolio/net_config")
+    parser.add_argument("--asset", dest="initial_asset", type=int,
+                        help="initial asset amount")
     return parser
 
 
@@ -52,7 +53,7 @@ def main():
 
     if options.mode == "train":
         import pgportfolio.autotrain.training
-        pgportfolio.autotrain.training.train_all(int(options.processes), options.device)
+        pgportfolio.autotrain.training.train_all(int(options.processes), options.device, options.initial_asset)
     elif options.mode == "generate":
         import pgportfolio.autotrain.generate as generate
         logging.basicConfig(level=logging.INFO)

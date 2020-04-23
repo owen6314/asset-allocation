@@ -6,7 +6,7 @@
     {"type": "EIIE_Output_WithW","regularizer": "L2", "weight_decay": 5e-8}
   ],
   "training":{
-    "steps":1000,
+    "steps":50,
     "learning_rate":0.0003,
     "batch_size":200,
     "buffer_biased":5e-5,

@@ -7,9 +7,9 @@ from pgportfolio.tools.trade import calculate_pv_after_commission
 
 
 class BackTest(trader.Trader):
-    def __init__(self, config, net_dir=None, agent=None, agent_type="nn"):
+    def __init__(self, config, net_dir=None, agent=None, agent_type="nn", initial_asset=10000):
         trader.Trader.__init__(self, 0, config, 0, net_dir,
-                               initial_asset=10000, agent=agent, agent_type=agent_type)
+                               initial_asset=initial_asset, agent=agent, agent_type=agent_type)
         if agent_type == "nn":
             data_matrices = self._rolling_trainer.data_matrices
         elif agent_type == "traditional":
@@ -33,14 +33,6 @@ class BackTest(trader.Trader):
 
     def finish_trading(self):
         self.__test_pv = self._total_capital
-
-        """
-        fig, ax = plt.subplots()
-        ax.bar(np.arange(len(self._rolling_trainer.data_matrices.sample_count)),
-               self._rolling_trainer.data_matrices.sample_count)
-        fig.tight_layout()
-        plt.show()
-        """
 
     def _log_trading_info(self, time, omega):
         pass

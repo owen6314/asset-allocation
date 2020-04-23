@@ -25,7 +25,8 @@ Result = collections.namedtuple("Result",
                                  "backtest_test_pv",
                                  "backtest_test_history",
                                  "backtest_test_log_mean",
-                                 "training_time"])
+                                 "training_time",
+                                 "weight_vector"])
 
 class TraderTrainer:
     def __init__(self, config, fake_data=False, restore_dir=None, save_path=None, device="cpu",
@@ -163,7 +164,7 @@ class TraderTrainer:
         upperbound_test = self.calculate_upperbound(self.test_set["y"])
         logging.info("upper bound in test is %s" % upperbound_test)
 
-    def train_net(self, log_file_dir="./tensorboard", index="0"):
+    def train_net(self, log_file_dir="./tensorboard", index="0", initial_asset=10000):
         """
         :param log_file_dir: logging of the training process
         :param index: sub-folder name under train_package
@@ -203,9 +204,9 @@ class TraderTrainer:
         logging.warning('the portfolio value train No.%s is %s log_mean is %s,'
                         ' the training time is %d seconds' % (index, pv, log_mean, time.time() - starttime))
 
-        return self.__log_result_csv(index, time.time() - starttime)
+        return self.__log_result_csv(index, time.time() - starttime, initial_asset)
 
-    def __log_result_csv(self, index, time):
+    def __log_result_csv(self, index, time, initial_asset):
         from pgportfolio.trade import backtest
         csv_dir = './train_package/train_summary.csv'
         tflearn.is_training(False, self._agent.session)
@@ -218,7 +219,8 @@ class TraderTrainer:
 
         backtest = backtest.BackTest(self.config.copy(),
                                      net_dir=None,
-                                     agent=self._agent)
+                                     agent=self._agent,
+                                     initial_asset=initial_asset)
 
         backtest.start_trading()
         result = Result(test_pv=[v_pv],
@@ -230,7 +232,8 @@ class TraderTrainer:
                         backtest_test_pv=[backtest.test_pv],
                         backtest_test_history=[''.join(str(e)+', ' for e in backtest.test_pc_vector)],
                         backtest_test_log_mean=[np.mean(np.log(backtest.test_pc_vector))],
-                        training_time=int(time))
+                        training_time=int(time),
+                        weight_vector=[backtest._last_omega])
         new_data_frame = pd.DataFrame(result._asdict()).set_index("net_dir")
         if os.path.isfile(csv_dir):
             dataframe = pd.read_csv(csv_dir).set_index("net_dir")

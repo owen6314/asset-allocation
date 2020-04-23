@@ -100,7 +100,7 @@ def plot_backtest(config, algos, labels=None):
     plt.show()
 
 
-def table_backtest(config, algos, labels=None, format="raw",
+def table_backtest(config, algos, labels=None, format="csv",
                    indicators=list(INDICATORS.keys())):
     """
     @:param config: config dictionary
@@ -142,9 +142,10 @@ def table_backtest(config, algos, labels=None, format="raw",
     elif format == "raw":
         print(dataframe.to_string())
     elif format == "csv":
-        dataframe.to_csv("./compare"+end.strftime("%Y-%m-%d")+".csv")
+        dataframe.to_csv("./result.csv")
     else:
         raise ValueError("The format " + format + " is not supported")
+
 
 
 def _extract_test(config):
