@@ -76,10 +76,8 @@ def parse_time(time_string):
 if __name__ == "__main__":
 
     initial_asset = int(sys.argv[1])
-    '''
     import pgportfolio.autotrain.generate as generate
     logging.basicConfig(level=logging.INFO)
     generate.add_packages(load_config(), 1)
-    '''
     import pgportfolio.autotrain.training
     pgportfolio.autotrain.training.train_all(1, "cpu", initial_asset)
