@@ -5,6 +5,7 @@ import datetime
 import sys
 import logging
 import os
+import pandas as pd
 from pgportfolio.tools.configprocess import load_config
 
 
@@ -74,10 +75,26 @@ def parse_time(time_string):
 
 
 if __name__ == "__main__":
-
+    '''
     initial_asset = int(sys.argv[1])
     import pgportfolio.autotrain.generate as generate
     logging.basicConfig(level=logging.INFO)
     generate.add_packages(load_config(), 1)
     import pgportfolio.autotrain.training
     pgportfolio.autotrain.training.train_all(1, "cpu", initial_asset)
+    '''
+    result = {}
+    # mdd, fapv, sharpe, weight_vector
+    import pgportfolio.resultprocess.plot
+    metrics = pgportfolio.resultprocess.plot.get_metrics(load_config(), ['1'], ['1'], format=None)
+    result = metrics
+    result_file = "./train_package/train_summary.csv"
+    df = pd.read_csv(result_file)
+    weight_vector_str = df.iloc[0]['weight_vector']
+    weight_vector = weight_vector_str.split(',')
+    weight_vector.pop()
+    result['weight_vector'] = weight_vector
+    with open('model1.json', 'w') as f:
+        json.dump(result, f)
+
+

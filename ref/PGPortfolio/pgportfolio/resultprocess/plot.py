@@ -67,10 +67,7 @@ def plot_backtest(config, algos, labels=None):
     rc("font", **{"family": "sans-serif", "sans-serif": ["Helvetica"],
                   "size": 8})
 
-    """
-    styles = [("-", None), ("--", None), ("", "+"), (":", None),
-              ("", "o"), ("", "v"), ("", "*")]
-    """
+
     fig, ax = plt.subplots()
     fig.set_size_inches(9, 5)
     for i, pvs in enumerate(results):
@@ -79,7 +76,6 @@ def plot_backtest(config, algos, labels=None):
         else:
             label = NAMES[algos[i]]
         ax.semilogy(dates, pvs, linewidth=1, label=label)
-        #ax.plot(dates, pvs, linewidth=1, label=label)
 
     plt.ylabel("portfolio value $p_t/p_0$", fontsize=12)
     plt.xlabel("time", fontsize=12)
@@ -100,7 +96,7 @@ def plot_backtest(config, algos, labels=None):
     plt.show()
 
 
-def table_backtest(config, algos, labels=None, format="csv",
+def table_backtest(config, algos, labels=None, format="raw",
                    indicators=list(INDICATORS.keys())):
     """
     @:param config: config dictionary
@@ -146,6 +142,38 @@ def table_backtest(config, algos, labels=None, format="csv",
     else:
         raise ValueError("The format " + format + " is not supported")
 
+
+def get_metrics(config, algos, labels=None, format="raw", indicators=list(INDICATORS.keys())):
+    results = []
+    labels = list(labels)
+    for i, algo in enumerate(algos):
+        if algo.isdigit():
+            portfolio_changes = _load_from_summary(algo, config)
+            logging.info("load index " + algo + " from csv file")
+        else:
+            logging.info("start executing " + algo)
+            portfolio_changes = execute_backtest(algo, config)
+            logging.info("finish executing " + algo)
+
+        indicator_result = {}
+        for indicator in indicators:
+            indicator_result[indicator] = INDICATORS[indicator](portfolio_changes)
+        results.append(indicator_result)
+        if len(labels) <= i:
+            labels.append(NAMES[algo])
+
+    dataframe = pd.DataFrame(results, index=labels)
+
+    metrics = {}
+    sharpe_ratio = dataframe.iloc[0]['sharpe ratio']
+    max_drawdown = dataframe.iloc[0]['max drawdown']
+    # not sure if it's this attribute
+    fapv         = dataframe.iloc[0]['portfolio value']
+    # fapv = dataframe.iloc[0]['average']
+    metrics['fapv'] = fapv
+    metrics['sharpe'] = sharpe_ratio
+    metrics['mdd'] = max_drawdown
+    return metrics
 
 
 def _extract_test(config):

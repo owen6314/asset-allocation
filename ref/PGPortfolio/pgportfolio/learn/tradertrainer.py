@@ -233,7 +233,8 @@ class TraderTrainer:
                         backtest_test_history=[''.join(str(e)+', ' for e in backtest.test_pc_vector)],
                         backtest_test_log_mean=[np.mean(np.log(backtest.test_pc_vector))],
                         training_time=int(time),
-                        weight_vector=[backtest._last_omega])
+                        weight_vector=[''.join(str(e)+',' for e in backtest._last_omega)])
+
         new_data_frame = pd.DataFrame(result._asdict()).set_index("net_dir")
         if os.path.isfile(csv_dir):
             dataframe = pd.read_csv(csv_dir).set_index("net_dir")
