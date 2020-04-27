@@ -10,9 +10,11 @@ from utils import get_data, get_scaler, maybe_make_dir, plot_all
 
 stock_name = "all"
 
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-e', '--episode', type=int, default=500,
+    parser.add_argument('-e', '--episode', type=int, default=2000,
                         help='number of episode to run')
     parser.add_argument('-b', '--batch_size', type=int, default=32,
                         help='batch size for experience replay')
@@ -21,7 +23,11 @@ if __name__ == '__main__':
     parser.add_argument('-m', '--mode', type=str, required=True,
                         help='either "train" or "test"')
     parser.add_argument('-w', '--weights', type=str, help='a trained model weights')
-    args = parser.parse_args()
+    args = parser.parse_args()    
+
+    d = vars(args)
+    init_asset = d['initial_invest']
+    print("Initial asset amount =", init_asset)
 
     maybe_make_dir('weights')
     maybe_make_dir('portfolio_val')
@@ -29,10 +35,14 @@ if __name__ == '__main__':
     timestamp = time.strftime('%Y%m%d%H%M')
 
     data = get_data(stock_name)
-    train_size = len(data[0])
-    test_pos = round(train_size * 0.8)
-    train_data = data[:, :test_pos]
-    test_data = data[:, test_pos:]
+    #print(data.shape[1])
+    train = round(data.shape[1]*0.98)
+    # test = round(data.shape[1]*0.99)
+    # train = 979
+    test = 979
+    print("train:{}, test:{}".format(data[:, train-1], data[:, test]))
+    train_data = data[:, :test]
+    test_data = data[:, test:]
 
     env = TradingEnv(train_data, args.initial_invest)
     state_size = env.observation_space.shape
@@ -49,6 +59,7 @@ if __name__ == '__main__':
         agent.load(args.weights)
         # when test, the timestamp is same as time when weights was trained
         timestamp = re.findall(r'\d{12}', args.weights)[0]
+        # daily_portfolio_value = [env.init_invest]
         daily_portfolio_value = []
 
     for e in range(args.episode):
@@ -64,9 +75,14 @@ if __name__ == '__main__':
                 daily_portfolio_value.append(info['cur_val'])
             state = next_state
             if done:
-                if args.mode == "test" and e % 100 == 0:
-                    plot_all(stock_name, daily_portfolio_value, env, test_pos + 1)
+
+                #if args.mode == "test" and e % 100 == 0:
+                    #plot_all(stock_name, daily_portfolio_value, env, test + 1)
                 daily_portfolio_value = []
+                print("stock_owned is: ", env.stock_owned)
+                print("cash_in_hand is: ", env.cash_in_hand)
+                print("stock_price is: ", env.stock_price)    
+                final_stock_hold = env.stock_owned
                 print("episode: {}/{}, episode end value: {}".format(
                     e + 1, args.episode, info['cur_val']))
                 portfolio_value.append(info['cur_val']) # append episode end portfolio value
@@ -75,10 +91,59 @@ if __name__ == '__main__':
             if args.mode == 'train' and len(agent.memory) > args.batch_size:
                 agent.replay(args.batch_size)
         if args.mode == 'train' and (e + 1) % 10 == 0:  # checkpoint weights
-            agent.save('weights/{}-dqn.h5'.format(timestamp))
+            agent.save('weights/{}-{}-dqn.h5'.format(init_asset,timestamp))
+            agent.save('weights/{}-{}.txt'.format(init_asset,timestamp))
+            print('./weights/{}-{}-dqn.h5'.format(init_asset,timestamp))
 
-    print("mean portfolio_val:", np.mean(portfolio_value))
-    print("median portfolio_val:", np.median(portfolio_value))
+    
+    diffArray = np.diff(np.array([x - init_asset for x in portfolio_value]))
+    diffArray = np.insert(diffArray, 0, portfolio_value[0]-init_asset, axis=0)
+
+    # print("=======diffArray = ", diffArray)
+    diffRatio = diffArray/portfolio_value
+    # print("diffRatio = ", diffRatio)
+
+    print("sharpe ratio:", np.mean(diffRatio)/np.std(diffRatio))
+    print("final portfolio_value:", portfolio_value[-1]/init_asset)
+
+    """calculate the max drawdown with the portfolio changes
+    @:param pc_array: all the portfolio changes during a trading process
+    @:return: max drawdown
+    """
+    pc_array = diffArray
+
+    portfolio_values = []
+    drawdown_list = []
+    max_benefit = 0
+    for i in range(len(portfolio_value)-1):
+        # if i == 0: continue
+        # print(i)
+        if i > 0:
+            portfolio_values.append(portfolio_value[i])
+            # print("the new portfolio_values is: ",portfolio_values)
+
+        else:
+            portfolio_values.append(pc_array[i])
+        if portfolio_values[i] > max_benefit:
+            # print("current value is: ", portfolio_values[i])
+            max_benefit = portfolio_values[i]
+            # print("the max_benefit is: ",max_benefit)
+
+            drawdown_list.append(0.0)
+        else:
+            if max_benefit != 0:
+                drawdown_list.append(1.0 - portfolio_values[i] / max_benefit)
+
+    drawdown_list[0] = 0
+    # print(drawdown_list)
+    print("the max draw down:", max(drawdown_list))
+
+
+    print("num_of_stock_share: ", final_stock_hold)
+    total_stock = sum(final_stock_hold)
+    weight_vector = [(final_stock_hold[i]/total_stock) for i in range(len(final_stock_hold))]
+    print("weight_vector:", weight_vector)
+
     # save portfolio value history to disk
     with open('portfolio_val/{}-{}.p'.format(timestamp, args.mode), 'wb') as fp:
         pickle.dump(portfolio_value, fp)

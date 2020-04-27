@@ -20,6 +20,9 @@ def max_drawdown(pc_array):
             drawdown_list.append(0.0)
         else:
             drawdown_list.append(1.0 - portfolio_values[i] / max_benefit)
+    print("the portfolio_values is: ", portfolio_values)
+    print("the pc_array is: ", pc_array)
+
     return max(drawdown_list)
 
 

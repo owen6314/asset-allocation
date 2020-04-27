@@ -50,6 +50,7 @@ class TradingEnv(gym.Env):
         # seed and start
         self._seed()
         self._reset()
+        # print("stock_owned is: ", self.stock_owned)
 
     def _seed(self, seed=None):
         self.np_random, seed = seeding.np_random(seed)
@@ -69,9 +70,10 @@ class TradingEnv(gym.Env):
         self.stock_price = self.stock_price_history[:, self.cur_step]  # update price
         self._trade(action)
         cur_val = self._get_val()
+        new_stock_owned = self.stock_owned
         reward = cur_val - prev_val
         done = self.cur_step == self.n_step - 1
-        info = {'cur_val': cur_val}
+        info = {'cur_val': cur_val, 'reward':reward, 'new_stock_owned':new_stock_owned}
         return self._get_obs(), reward, done, info
 
     def _get_obs(self):
@@ -100,8 +102,8 @@ class TradingEnv(gym.Env):
                         break
             elif a == 2:
                 for j in range(i, 4 * i):
-                    if j < self.n_stock and self.cash_in_hand > self.stock_price[i] * 200:
-                        self.stock_owned[j] += 200  # buy one share
-                        self.cash_in_hand -= self.stock_price[j] * 200
+                    if j < self.n_stock and self.cash_in_hand > self.stock_price[i] * 50:
+                        self.stock_owned[j] += 50  # buy one share
+                        self.cash_in_hand -= self.stock_price[j] * 50
                     else:
                         break

@@ -33,6 +33,8 @@ if __name__ == '__main__':
 	now_time = datetime.now()
 	""" list of s_anp_p companies """
 	s_and_p = get_top_symbols()
+
+	# s_and_p = ['GOOG']
 	# s_and_p = ['MMM','ABT','ABBV','ACN','ATVI','AYI','ADBE','AMD','AAP','AES','AET',
 	# 	'AMG','AFL','A','APD','AKAM','ALK','ALB','ARE','ALXN','ALGN','ALLE',
 	# 	'AGN','ADS','LNT','ALL','GOOGL','GOOG','MO','AMZN','AEE','AAL','AEP',
