@@ -1,0 +1,397 @@
+[
+  {
+    "index": 0,
+    "name": "GS",
+    "price": 236.46
+  },
+  {
+    "index": 1,
+    "name": "SPGI",
+    "price": 294.12
+  },
+  {
+    "index": 2,
+    "name": "IJJ",
+    "price": 169.37
+  },
+  {
+    "index": 3,
+    "name": "IJK",
+    "price": 243.41
+  },
+  {
+    "index": 4,
+    "name": "BTC-USD",
+    "price": 6788.11
+  },
+  {
+    "index": 5,
+    "name": "ETC-USD",
+    "price": 5.099789
+  },
+  {
+    "index": 6,
+    "name": "UVXY",
+    "price": 11.45
+  },
+  {
+    "index": 7,
+    "name": "LRCX",
+    "price": 325.67
+  },
+  {
+    "index": 8,
+    "name": "LTC-USD",
+    "price": 40.41
+  },
+  {
+    "index": 9,
+    "name": "ITA",
+    "price": 238.86
+  },
+  {
+    "index": 10,
+    "name": "NEE",
+    "price": 272.15
+  },
+  {
+    "index": 11,
+    "name": "SBUX",
+    "price": 87.51
+  },
+  {
+    "index": 12,
+    "name": "MCK",
+    "price": 164.65
+  },
+  {
+    "index": 13,
+    "name": "NOC",
+    "price": 368.04
+  },
+  {
+    "index": 14,
+    "name": "IHI",
+    "price": 273.7
+  },
+  {
+    "index": 15,
+    "name": "PSA",
+    "price": 226.36
+  },
+  {
+    "index": 16,
+    "name": "XLM-USD",
+    "price": 0.0421
+  },
+  {
+    "index": 17,
+    "name": "QLD",
+    "price": 144.26
+  },
+  {
+    "index": 18,
+    "name": "XRP-USD",
+    "price": 0.1789
+  },
+  {
+    "index": 19,
+    "name": "AGG",
+    "price": 114.21
+  },
+  {
+    "index": 20,
+    "name": "ETH-USD",
+    "price": 143.26
+  },
+  {
+    "index": 21,
+    "name": "BXP",
+    "price": 144.22
+  },
+  {
+    "index": 22,
+    "name": "VCR",
+    "price": 200.44
+  },
+  {
+    "index": 23,
+    "name": "MUB",
+    "price": 115.6
+  },
+  {
+    "index": 24,
+    "name": "ACN",
+    "price": 212.14
+  },
+  {
+    "index": 25,
+    "name": "CI",
+    "price": 215.18
+  },
+  {
+    "index": 26,
+    "name": "SUB",
+    "price": 107.16
+  },
+  {
+    "index": 27,
+    "name": "JNJ",
+    "price": 151.99
+  },
+  {
+    "index": 28,
+    "name": "TNA",
+    "price": 72.67
+  },
+  {
+    "index": 29,
+    "name": "SVXY",
+    "price": 66.41
+  },
+  {
+    "index": 30,
+    "name": "KR",
+    "price": 28.44
+  },
+  {
+    "index": 31,
+    "name": "STZ",
+    "price": 199.94
+  },
+  {
+    "index": 32,
+    "name": "LLY",
+    "price": 144.25
+  },
+  {
+    "index": 33,
+    "name": "ZBH",
+    "price": 159.29
+  },
+  {
+    "index": 34,
+    "name": "VBK",
+    "price": 205.69
+  },
+  {
+    "index": 35,
+    "name": "BDX",
+    "price": 256.41
+  },
+  {
+    "index": 36,
+    "name": "IJS",
+    "price": 155.04
+  },
+  {
+    "index": 37,
+    "name": "AIV",
+    "price": 54.13
+  },
+  {
+    "index": 38,
+    "name": "LMT",
+    "price": 439.85
+  },
+  {
+    "index": 39,
+    "name": "ECL",
+    "price": 204.62
+  },
+  {
+    "index": 40,
+    "name": "XEC",
+    "price": 41.07
+  },
+  {
+    "index": 41,
+    "name": "EBAY",
+    "price": 36.44
+  },
+  {
+    "index": 42,
+    "name": "TRV",
+    "price": 137.38
+  },
+  {
+    "index": 43,
+    "name": "TECS",
+    "price": 5.31
+  },
+  {
+    "index": 44,
+    "name": "ARNC",
+    "price": 32.02
+  },
+  {
+    "index": 45,
+    "name": "IGIB",
+    "price": 59.04
+  },
+  {
+    "index": 46,
+    "name": "TLH",
+    "price": 150.3
+  },
+  {
+    "index": 47,
+    "name": "KMB",
+    "price": 145.25
+  },
+  {
+    "index": 48,
+    "name": "VGT",
+    "price": 267.79
+  },
+  {
+    "index": 49,
+    "name": "GWW",
+    "price": 300.87
+  },
+  {
+    "index": 50,
+    "name": "USDT-USD",
+    "price": 1.0018
+  },
+  {
+    "index": 51,
+    "name": "IWF",
+    "price": 188.85
+  },
+  {
+    "index": 52,
+    "name": "MSFT",
+    "price": 184.44
+  },
+  {
+    "index": 53,
+    "name": "UHS",
+    "price": 141.68
+  },
+  {
+    "index": 54,
+    "name": "IYH",
+    "price": 220.57
+  },
+  {
+    "index": 55,
+    "name": "SHW",
+    "price": 577.04
+  },
+  {
+    "index": 56,
+    "name": "FAZ",
+    "price": 24.9
+  },
+  {
+    "index": 57,
+    "name": "SPXS",
+    "price": 11.69
+  },
+  {
+    "index": 58,
+    "name": "VUG",
+    "price": 197.3
+  },
+  {
+    "index": 59,
+    "name": "IYW",
+    "price": 256.12
+  },
+  {
+    "index": 60,
+    "name": "CMI",
+    "price": 164.3
+  },
+  {
+    "index": 61,
+    "name": "HUM",
+    "price": 357.17
+  },
+  {
+    "index": 62,
+    "name": "DHR",
+    "price": 163.68
+  },
+  {
+    "index": 63,
+    "name": "XMR-USD",
+    "price": 53.62
+  },
+  {
+    "index": 64,
+    "name": "VAR",
+    "price": 145.45
+  },
+  {
+    "index": 65,
+    "name": "ITOT",
+    "price": 75.65
+  },
+  {
+    "index": 66,
+    "name": "DASH-USD",
+    "price": 67.53
+  },
+  {
+    "index": 67,
+    "name": "AMAT",
+    "price": 64.45
+  },
+  {
+    "index": 68,
+    "name": "VDC",
+    "price": 163.53
+  },
+  {
+    "index": 69,
+    "name": "ROST",
+    "price": 119.7
+  },
+  {
+    "index": 70,
+    "name": "QID",
+    "price": 19.64
+  },
+  {
+    "index": 71,
+    "name": "WHR",
+    "price": 151.98
+  },
+  {
+    "index": 72,
+    "name": "MLM",
+    "price": 262.76
+  },
+  {
+    "index": 73,
+    "name": "RTN",
+    "price": 229.31
+  },
+  {
+    "index": 74,
+    "name": "MCD",
+    "price": 215.73
+  },
+  {
+    "index": 75,
+    "name": "ZROZ",
+    "price": 146.12
+  },
+  {
+    "index": 76,
+    "name": "IEF",
+    "price": 113.21
+  },
+  {
+    "index": 77,
+    "name": "AAP",
+    "price": 132.11
+  },
+  {
+    "index": 78,
+    "name": "GVI",
+    "price": 113.88
+  }
+]

@@ -20,7 +20,7 @@ for file in os.listdir(root_dir):
         print("processing: " + file)
         df = pd.read_csv(root_dir + file)
         df = df[['Date', 'Name', 'High', 'Low', 'Open', 'Close', 'Volume']]
-        if len(df) != 1258:
+        if len(df) < 1258:
             continue
         counter += 1
         f = lambda x: time.mktime(datetime.strptime(x, "%Y-%m-%d").timetuple())

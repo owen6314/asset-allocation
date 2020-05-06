@@ -3,11 +3,14 @@ import os
 from datetime import datetime
 import time
 
-root_dir = 'sample2/'
+root_dir = 'sample/'
 result_file = 'all.csv'
 counter = 0
 
 result_df = pd.DataFrame(columns=['DateTime'])
+
+if not os.path.exists(root_dir):
+    os.mkdir(root_dir)
 
 for file in os.listdir(root_dir):
     if '.csv' in file:
@@ -15,7 +18,7 @@ for file in os.listdir(root_dir):
         stock_name = file[:-4]
         df = pd.read_csv(root_dir + file)
         df = df[['Date', 'Close']]
-        if len(df) != 1258:
+        if len(df) < 1258:
             continue
         if len(result_df) == 0:
             result_df['DateTime'] = df['Date']
