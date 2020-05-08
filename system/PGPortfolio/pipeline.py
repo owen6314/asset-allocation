@@ -92,7 +92,7 @@ if __name__ == "__main__":
     weight_vector = weight_vector_str.split(',')
     weight_vector.pop()
     result['weight_vector'] = weight_vector
-    with open('model1-15000.json', 'w') as f:
+    with open('model1-500000.json', 'w') as f:
         json.dump(result, f)
 
 
