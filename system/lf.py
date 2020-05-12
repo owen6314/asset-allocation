@@ -2,7 +2,7 @@ import json
 import boto3
 import math
 
-bucket = "6895-result"
+bucket = ""
 
 def lambda_handler(event, context):
     asset_amount  = int(event['asset'])
@@ -44,6 +44,8 @@ def lambda_handler(event, context):
     else:
         choosen_model = model2
     weight_vector = choosen_model['weight_vector']
+    if type(weight_vector) == type("str"):
+        weight_vector = weight_vector.strip('][').split(',')
     
     # choose 5 assets
     asset_indexes = []
@@ -54,8 +56,10 @@ def lambda_handler(event, context):
     
     if choosen_model == model1:
         map_key = "model1_mapping.json"
+        model_name = "EIIE model"
     else:
         map_key = "model2_mapping.json"
+        model_name = "Q learning model"
     
     response = s3.get_object (
         Bucket = bucket,
@@ -89,7 +93,9 @@ def lambda_handler(event, context):
         if item[1] != 0:
             result[key] = item
     response = {"isBase64Encoded": False,
-    "statusCode": 200,
-    "headers": {"Access-Control-Allow-Origin":"*"},
-    "body":result}
+        "statusCode": 200,
+        "headers": {"Access-Control-Allow-Origin":"*"},
+        "body":result,
+        "model": model_name
+    }
     return response
