@@ -14,7 +14,7 @@ def LastNlines(fname, N):
 
 # Driver Code:  
 if __name__ == '__main__': 
-	fname = 'log.txt'
+	fname = 'log2.txt'
 	N = 5
 	try: 
 		LastNlines(fname, N) 

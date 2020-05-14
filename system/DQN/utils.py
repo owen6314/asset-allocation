@@ -44,9 +44,9 @@ def maybe_make_dir(directory):
 def buy_and_hold_benchmark(stock_name, init_invest, test):
     df = pd.read_csv('./data/{}.csv'.format(stock_name)).iloc[test:, :]
     dates = df['DateTime'].astype("str")
-    per_num_holding = init_invest // 181
+    per_num_holding = init_invest // 79
     num_holding = per_num_holding // df.iloc[0, 1:]
-    balance_left = init_invest % 181 + ([per_num_holding for _ in range(181)] % df.iloc[0, 1:]).sum()
+    balance_left = init_invest % 79 + ([per_num_holding for _ in range(79)] % df.iloc[0, 1:]).sum()
     buy_and_hold_portfolio_values = (df.iloc[:, 1:] * num_holding).sum(axis=1) + balance_left
     buy_and_hold_return = buy_and_hold_portfolio_values.iloc[-1] - init_invest
     return dates, buy_and_hold_portfolio_values, buy_and_hold_return
@@ -69,7 +69,13 @@ def plot_all(stock_name, daily_portfolio_value, env, test):
     ax.set_ylabel('Portfolio Value (USD)')
 
     ax.xaxis.set_major_formatter(mdate.DateFormatter('%Y%m%d'))
-    plt.xticks(pd.date_range('2019-02-28', '2020-02-11', freq='1m'))
+    # plt.xticks(pd.date_range('2019-01-05', '2019-12-31', freq='1m'))
+    plt.tick_params(
+    axis='x',          # changes apply to the x-axis
+    which='both',      # both major and minor ticks are affected
+    bottom=False,      # ticks along the bottom edge are off
+    top=False,         # ticks along the top edge are off
+    labelbottom=False) 
     ax.legend()
     plt.gcf().autofmt_xdate()
     plt.subplots_adjust(hspace=0.5)

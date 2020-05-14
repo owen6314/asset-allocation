@@ -1,17 +1,5 @@
 # Introduction
 
-This repo is part of CS277 project: [Deep Reinforcement Learning in Portfolio Management](https://wjie12.github.io/2020/01/19/RL4PM/)
-
-The whole project consists three repos for three parts:
-1. [Preprocessing](https://github.com/WJie12/autotrading_preprocessing):
-    * Pre-stock-selection
-    * Processing raw data provided by SSE
-    * Generating datasets for DQN and DDPG based on the selected stocks
-2. [DQN](https://github.com/WJie12/autotrading_DQN):
-    * Implement of trading agent based on DQN
-3. [DDPG](https://github.com/morningsky/CS277-Project-DRL-in-Portfolio-Management):
-    * Implement of trading agent based on DDPG
-
 This repo is for the DQN part.
 
 # How to run
@@ -40,6 +28,10 @@ Example:
 * train: `python run.py --mode train`
 * test: `python test.py --mode test --weights ./weights/201912141307-dqn.h5 -e 500`
 
+Run in the bundle:
+
+* use wrap.sh, and the results will be stored in results.json
+
 ## Structure
 ```python
 |-data
@@ -65,43 +57,6 @@ Example:
 * `requirement.txt`: all dependencies
 
 
-# Results
-
-## Training on 19 stocks for 2000 episodes and 4000 episodes
-
-dataset: all_set_1.csv, stock_table_1.csv
-
-train：4000 episode
-
-mean portfolio_val: 116988.378
-
-median portfolio_val: 116565.0
-
-![old_pic](visualization/traing4000_2000.png)
-
-## Testing on known old 19 stocks
-
-dataset: all_set_1.csv, stock_table_1.csv
-
-test: 500 episode
-
-mean portfolio_val: 17703.272
-
-median portfolio_val: 16994.000000000004
-
-![old_pic](visualization/old.png)
-
-## Testing on unknown new 19 stocks
-
-dataset: all_set_2.csv, stock_table_2.csv
-
-test: 500 episode
-
-mean portfolio_val: 15256.06
-
-median portfolio_val: 15008.0
-
-![new_pic](visualization/new.png)
 
 # Ref
 
