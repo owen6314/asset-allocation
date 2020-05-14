@@ -12,10 +12,10 @@ Stores the data processing related code. The data/fetch contains python scripts 
 ### ./system
 This stores the actual code for building our recommendation system. The system/DQN stores the deep Q learning model's code, system/DQN/data contains the csv input for the algorithms. More details is in README.md in system/DQN. The entire model can be run with the wrap.sh script.
 
-The system/PGPortfolio stores the code of EIIE model, the entire model can be run with the pipeline.py.
+The system/PGPortfolio stores the code of EIIE model, the entire model can be run with the pipeline.py. See system/PGPortfolio/README for details.
 
 ### ./frontend
-This contans the html, css and javascript needed to build a APIGateway on Amazon Web Service. 
+This contans the html, css and javascript needed to build the frontend. 
 
 ### if.py
-This is the python code for the lambda function on AWS.
+This is the python code for the lambda function on AWS. You need to manually create an API Gateway to connect the lambda function to frontend.
