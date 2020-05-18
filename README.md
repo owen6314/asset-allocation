@@ -1,5 +1,5 @@
 # asset-allocation
-Course Project of EECS E6895: a system for asset allocation and recommendation (US).
+Course Project of EECS E6895: an RL-based asset allocation and recommendation system (US).
 
 ## Project Summary
 The purpose of this project is to design and implement an asset recommendation system to let users buy traditional assets and cryptocurrency at the same time. The system takes in a combined datasets of stock, ETF and cryptocurrencies, as well as the user's preference on value return or risk. Then the system will give these inputs to two state-of-the-art, model-free reinforcement learning models, one is the policy gradient model proposed by Jiang et al. and the other is the deep Q-learning model. Each model will generate a report with suggested purchasing plan (in the form of weight vectors and their corresponding assets) and indicators, the system will choose the strategy that better fits the user’s preference and output it to the user.
@@ -21,3 +21,6 @@ system/PGPortfolio stores the code of EIIE model, the entire model can be run wi
 system/frontend contains the html, css and javascript needed to build the frontend. 
 
 system/lf.py is the python code for the lambda function on AWS. You need to manually create an API Gateway to connect the lambda function to frontend.
+
+
+See [course webpage](http://www.ee.columbia.edu/~cylin/course/bigdata/projects/) for more details (technical report, slides...). Our project code is 202005-13.
